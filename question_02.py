@@ -41,7 +41,7 @@ print(f"Sum red values: {red_sum}")
 
  
 ###---------------------------------------------------###
-###---Question 02 -Chapter 1:The Chamber of Strings---###
+###---Question 02 -Chapter 2:The Chamber of Strings---###
 ###---------------------------------------------------###
 
 ###----part-01----###
@@ -70,3 +70,39 @@ def string_convert(s):
             upper_case_letters_ascii.append(ord(letter))
 
     return number_str, letter_str,even_num, even_num_ascii,upper_case_letter, upper_case_letters_ascii
+
+###---------------------------------------------------###
+###---Question 02 -Chapter 1:The Chamber of Strings---###
+###---------------------------------------------------###
+
+###----part-02----###
+
+def decrypt(cipher_text, shift):
+    decrypted_txt = []
+
+    for char in cipher_text:
+        # Check if it's an uppercase letter
+        if char.isupper():
+            # Shift the character and wrap around the alphabet if needed
+            decrypted_char = chr((ord(char) - shift - 65) % 26 + 65)
+            decrypted_txt.append(decrypted_char)
+        # Check if it's a lowercase letter
+        elif char.islower():
+            decrypted_char = chr((ord(char) - shift - 97) % 26 + 97)
+            decrypted_txt.append(decrypted_char)
+        else:
+            # Keep non-alphabetic characters are added without any change
+            decrypted_txt.append(char)
+
+    return ''.join(decrypted_txt)
+
+# Ciphered quote
+cipher_text = "VZ FRYSVFU VZCNGVRAG NAQ N YVGGYR VAFRPHER V ZNXR ZVFGNXRF V NZ BHG BS PBAGEBY NAQNG GVZRF UNEQ GB UNAQYR OHG VS LBH PNAG UNAQYR ZR NG ZL JBEFG GURA LBH FHER NF URYYQBAG QRFREIR ZR NG ZL ORFG ZNEVYLA ZBAEBR"
+
+# Try all possible shifts (1 through 25)
+for s in range(1, 26):
+    print(f"Shift: {s}")
+    print(decrypt(cipher_text, s))
+    print()
+
+# For given original quote shift is 13
