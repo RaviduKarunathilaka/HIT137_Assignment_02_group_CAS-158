@@ -38,3 +38,35 @@ plt.imsave('chapter1out.png', new_image)
 
 # Output the sum of all red values
 print(f"Sum red values: {red_sum}")
+
+ 
+###---------------------------------------------------###
+###---Question 02 -Chapter 1:The Chamber of Strings---###
+###---------------------------------------------------###
+
+###----part-01----###
+
+def string_convert(s):
+    #first convert string into numbers and letters
+    number_str = ''.join(char for char in s if char.isdigit())
+    letter_str = ''.join(char for char in s if char.isalpha())
+
+    #get the even number & even number ASCII value to lists
+    even_num = []
+    even_num_ascii = []
+    for num in number_str:
+        #check whether remainder is 0 to identify even or odd number
+        if int(num) % 2 == 0:
+            even_num.append(num)
+            even_num_ascii.append(ord(num))
+
+    #get the upper-case letters in the letter substring and get their ASCII value to the list
+    upper_case_letter = []
+    upper_case_letters_ascii = []
+    for letter in letter_string:
+        # checking selected letter is uppercase letter
+        if letter.isupper():
+            upper_case_letter.append(letter)
+            upper_case_letters_ascii.append(ord(letter))
+
+    return number_str, letter_str,even_num, even_num_ascii,upper_case_letter, upper_case_letters_ascii
