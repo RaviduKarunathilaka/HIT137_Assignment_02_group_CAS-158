@@ -63,7 +63,7 @@ def string_convert(s):
     #get the upper-case letters in the letter substring and get their ASCII value to the list
     upper_case_letter = []
     upper_case_letters_ascii = []
-    for letter in letter_string:
+    for letter in letter_str:
         # checking selected letter is uppercase letter
         if letter.isupper():
             upper_case_letter.append(letter)
@@ -106,3 +106,4 @@ for s in range(1, 26):
     print()
 
 # For given original quote shift is 13
+
